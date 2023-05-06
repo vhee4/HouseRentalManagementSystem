@@ -3,8 +3,8 @@ package Database;
 import BaseClass.Property;
 
 public class DataBase {
-    Property[] properties;
-    int numberOfProperties=0;
+    private Property[] properties;
+    private int numberOfProperties=0;
 
     public DataBase(int size) {
         this.properties = new Property[size];
@@ -15,7 +15,8 @@ public class DataBase {
 
     }
 
-    public void setPropertiesDB(Property[] properties, int numberOfProperties) {
+
+    public void saveChanges(Property[] properties, int numberOfProperties) {
         this.properties = properties;
         this.numberOfProperties=numberOfProperties;
     }
@@ -24,7 +25,4 @@ public class DataBase {
         return numberOfProperties;
     }
 
-//    public void setNumberOfProperties(int numberOfProperties) {
-//        this.numberOfProperties = numberOfProperties;
-//    }
 }

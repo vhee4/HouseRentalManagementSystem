@@ -1,11 +1,5 @@
 package BaseClass;
-
-//import Enums.OccupiedStatus;
-import lombok.Getter;
-import lombok.Setter;
-
 public abstract  class Property {
-
 
     private String propertyCode;
     private String location;
@@ -14,8 +8,8 @@ public abstract  class Property {
     private double rentPerMonth;
     private boolean occupiedStatus;
 
-    public Property(String propertyCode, String location, int numberOfBedrooms, int numberOfBathrooms, double rentPerMonth, boolean occupiedStatus) {        this.propertyCode = propertyCode;
-        this.location = location;
+    public Property(String location, int numberOfBedrooms, int numberOfBathrooms, double rentPerMonth, boolean occupiedStatus)
+    {   this.location = location;
         this.numberOfBedrooms = numberOfBedrooms;
         this.numberOfBathrooms = numberOfBathrooms;
         this.rentPerMonth = rentPerMonth;
@@ -72,13 +66,13 @@ public abstract  class Property {
 
     @Override
     public String toString() {
-        return "Property{" +
-                "propertyCode='" + propertyCode + '\'' +
-                ", location='" + location + '\'' +
-                ", numberOfBedrooms=" + numberOfBedrooms +
-                ", numberOfBathrooms=" + numberOfBathrooms +
-                ", rentPerMonth=" + rentPerMonth +
-                ", occupiedStatus=" + occupiedStatus +
-                '}';
+        return
+                "       propertyCode      :         " + propertyCode  +
+                "\n       location          :         " + location  +
+                "\n       numberOfBedrooms  :         " + numberOfBedrooms +
+                "\n       numberOfBathrooms :         " + numberOfBathrooms +
+                "\n       rentPerMonth      :         " + rentPerMonth +
+                "\n       occupiedStatus    :         " + occupiedStatus
+                ;
     }
 }
