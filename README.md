@@ -2,7 +2,6 @@
 This is a Java application that manages a collection of properties for rent. It provides CRUD (Create, Read, Update, Delete) operations for managing properties such as apartments, houses, and condos.
 
 Features
-The House Rental Management System has the following features:
 
 Add a new property to the system
 Update an existing property
