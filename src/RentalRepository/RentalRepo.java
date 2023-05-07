@@ -28,7 +28,7 @@ public class RentalRepo{
         Property[] localDB = dataBase.getPropertiesDB();
         int numberOfProperties = dataBase.getNumberOfProperties();
         for(int i = 0; i<numberOfProperties; i++) {
-            if (localDB[i].getPropertyCode().equals(property.getPropertyCode())) {
+            if (localDB[i].getPropertyCode().equalsIgnoreCase(property.getPropertyCode())) {
                 localDB[i] = property;
                 dataBase.saveChanges(localDB, numberOfProperties);
                 return;
@@ -41,7 +41,7 @@ public class RentalRepo{
         Property[] localDB = dataBase.getPropertiesDB();
         int numberOfProperties = dataBase.getNumberOfProperties();
         for(int i = 0; i<numberOfProperties; i++){
-            if(localDB[i].getPropertyCode().equals(property.getPropertyCode())){
+            if(localDB[i].getPropertyCode().equalsIgnoreCase(property.getPropertyCode())){
                 for(int j=i; j<numberOfProperties-1;j++){
                     localDB[j] = localDB[j+1];
                 }
@@ -111,34 +111,26 @@ public class RentalRepo{
     }
 
     public void searchByLocation(String location) {
-        try {
             Property[] localDB = dataBase.getPropertiesDB();
-            if (localDB == null) {
-                throw new NullPointerException("Properties database is null.");
-            }
             int numberOfProperties = dataBase.getNumberOfProperties();
+            boolean found = false;
             for (int i = 0; i < numberOfProperties; i++) {
-                if (localDB[i].getLocation().equals(location)) {
+                if (localDB[i].getLocation().equalsIgnoreCase(location)) {
                     System.out.println(localDB[i]);
-                    return;
+                    found = true;
                 }
             }
-            System.out.println("Property with Location " + location + " not found.");
+            if(!found){
+                System.out.println("Property with location " + location + " not found");
+            }
 
-        } catch (NullPointerException e) {
-            System.err.println("Error: " + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) {
-            System.err.println("An error occurred while viewing properties by location: " + e.getMessage());
-            e.printStackTrace();
-        }
     }
 
     public void searchByPropertyCode(String propertyCode) {
         Property[] localDB = dataBase.getPropertiesDB();
         int numberOfProperties = dataBase.getNumberOfProperties();
         for (int i = 0; i < numberOfProperties; i++) {
-            if (localDB[i].getPropertyCode().equals(propertyCode)){
+            if (localDB[i].getPropertyCode().equalsIgnoreCase(propertyCode)){
                 System.out.println(localDB[i]);
                 return;
             }

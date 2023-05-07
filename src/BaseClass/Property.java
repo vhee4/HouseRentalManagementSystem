@@ -1,4 +1,7 @@
 package BaseClass;
+
+//import Enums.OccupiedStatus;
+
 public abstract  class Property {
 
     private String propertyCode;
@@ -67,7 +70,7 @@ public abstract  class Property {
     @Override
     public String toString() {
         return
-                "       propertyCode      :         " + propertyCode  +
+                "       propertyCode      :          " + propertyCode  +
                 "\n       location          :         " + location  +
                 "\n       numberOfBedrooms  :         " + numberOfBedrooms +
                 "\n       numberOfBathrooms :         " + numberOfBathrooms +

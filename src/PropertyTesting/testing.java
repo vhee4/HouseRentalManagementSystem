@@ -13,6 +13,8 @@ public class testing {
 
     public static void main(String[] args) {
 
+
+
         //CREATING DATABASE
         DataBase dataBase = new DataBase(99);
 
@@ -33,6 +35,7 @@ public class testing {
         Property A11= new Apartment("Kebbi", 5, 2, 60.0, true, 4);
         Property A12= new Apartment("Calabar", 3, 3, 60.0, false, 8);
 
+        //FOR ALL CRUD OPERATIONS
         rentalRepo.addProperty(H1);
         rentalRepo.addProperty(H2);
         rentalRepo.addProperty(H3);
@@ -46,14 +49,31 @@ public class testing {
         rentalRepo.addProperty(A11);
         rentalRepo.addProperty(A12);
 
-        rentalRepo.viewAllProperties();
-        propertyReport.totalNumberOfAllProperties();
-        propertyReport.totalNumberOf("house");
-        propertyReport.totalNumberOf("apartment");
-        propertyReport.totalNumberOf("condo");
-        propertyReport.totalRentalIncome("house");
-        propertyReport.totalRentalIncome("apartment");
-        propertyReport.totalRentalIncome("condo");
+//        A9.setLocation("Kebbi");
+//        rentalRepo.updateProperty(A9);
+//        rentalRepo.deleteProperty(A9);
+//        rentalRepo.viewAllProperties();
+//        rentalRepo.viewAllApartments();
+//        rentalRepo.viewAllCondos();
+//        rentalRepo.viewAllHouses();
+//        rentalRepo.viewAllOcccupiedProperties();
+//        rentalRepo.viewAllUnocccupiedProperties();
+//        rentalRepo.searchByLocation("abuja");
+//        rentalRepo.searchByPropertyCode("APA033");
+
+
+        //FOR ALL REPORTS
+//        propertyReport.totalNumberOfAllProperties();
+//        propertyReport.totalNumberOf("house");
+//        propertyReport.totalNumberOf("apartment");
+//        propertyReport.totalNumberOf("condo");
+//        propertyReport.totalRentalIncome("house");
+//        propertyReport.totalRentalIncome("apartment");
+//        propertyReport.totalRentalIncome("condo");
+          propertyReport.totalNumberOfOccupied("house");
+          propertyReport.totalNumberOfUnoccupied("house");
+          propertyReport.totalNumberOfBedrooms("condo");
+          propertyReport.totalNumberOfBathrooms("apartment");
 
 
     }

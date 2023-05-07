@@ -1,0 +1,168 @@
+@startuml
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1371240329 { 
+   	label=PropertyReport
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   PropertyReport1371240329[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PropertyReport</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dataBase: DataBase [size]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ totalNumberOf(propertyType: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ totalNumberOfAllProperties()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ totalNumberOfBathrooms(propertyType: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ totalNumberOfBedrooms(propertyType: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ totalNumberOfOccupied(propertyType: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ totalNumberOfUnoccupied(propertyType: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ totalRentalIncome(propertyType: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0.1
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_161443079 { 
+   	label=BaseClass
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Property161443079[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Property</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   propertyCode: String </TD></TR>
+<TR><TD ALIGN="LEFT" >-   location: String</TD></TR>
+<TR><TD ALIGN="LEFT" >-   numberOfBathrooms: int</TD></TR>
+<TR><TD ALIGN="LEFT" >-   numberOfBedrooms: int</TD></TR>
+<TR><TD ALIGN="LEFT" >-   occupiedStatus: boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rentPerMonth: double</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1854109083 { 
+   	label=Database
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   DataBase1854109083[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DataBase</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   numberOfProperties: int</TD></TR>
+<TR><TD ALIGN="LEFT" >-   properties: Property[]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ saveChanges(properties: Property[], numberOfProperties: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2061065134 { 
+   	label=RentalRepository
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   RentalRepo2061065134[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RentalRepo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dataBase: DataBase [size]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   propertyCodeGenerator: PropertyCodeGenerator</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addProperty(property: Property)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteProperty(property: Property)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ searchByLocation(location: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ searchByPropertyCode(propertyCode: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateProperty(property: Property)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ viewAllApartments()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ viewAllCondos()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ viewAllHouses()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ viewAllOcccupiedProperties()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ viewAllProperties()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ viewAllUnocccupiedProperties()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_230418556 { 
+   	label=PropertyTypes
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Apartment230418556[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Apartment</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   floorNumber: int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Condo230418556[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Condo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   amenities: String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+House230418556[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)House</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   yardSize: double</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+DataBase1854109083 -> Property161443079[label="properties
+"];
+Property161443079 -> Apartment230418556[arrowhead=none, arrowtail=empty, dir=both];
+Property161443079 -> Condo230418556[arrowhead=none, arrowtail=empty, dir=both];
+Property161443079 -> House230418556[arrowhead=none, arrowtail=empty, dir=both];
+PropertyReport1371240329 -> DataBase1854109083[label="dataBase
+"];
+RentalRepo2061065134 -> DataBase1854109083[label="dataBase
+"];
+    
+}
+@enduml
