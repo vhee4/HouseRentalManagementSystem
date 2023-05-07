@@ -14,17 +14,17 @@ Search for a property by property code
 Search for a property by location
 
 
-House Rental Management System Report
+House Rental Management System Report:
 A report is generated based on property type which provides the following information:
 
 Total number of properties (Regardless, of the property type specified, a total number of properties is provided)
 Total number of propertyType, for instance, Total number of apartments in the rental repository.
-Total number of bedrooms in apartments
-Total number of bathrooms in apartments
-Total number of occupied apartments.
-Total number of unoccupied apartments.
-Total monthly rental income accrued from apartments.
+Total number of bedrooms in different property types
+Total number of bathrooms in different property types
+Total number of occupied property based on different property types.
+Total number of unoccupied property based on different property types.
+Total monthly rental income accrued from different property types.
 
 
-Additional Information
+Additional Information:
 The class diagram can be found in the UMLDiagram package.
